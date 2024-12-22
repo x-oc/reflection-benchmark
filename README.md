@@ -1,137 +1,155 @@
-# Шаблон Java-проекта для домашних заданий
+# Измерение производительности
 
-Шаблон для домашних заданий [Академии Бэкенда 2024][course-url].
+JMH version: 1.37  
+VM version: JDK 22.0.2, Java HotSpot(TM) 64-Bit Server VM, 22.0.2+9-70  
+VM invoker: C:\Program Files\Java\jdk-22\bin\java.exe  
+VM options: -javaagent:C:\Program Files\JetBrains\IntelliJ IDEA 2024.1.1\lib\idea_rt.jar=63038:C:\Program Files\JetBrains\IntelliJ IDEA 2024.1.1\bin -Dfile.encoding=UTF-8 -Dsun.stdout.encoding=UTF-8 -Dsun.stderr.encoding=UTF-8  
+Blackhole mode: compiler (auto-detected, use -Djmh.blackhole.autoDetect=false to disable)  
+Warmup: 1 iterations, 3 s each  
+Measurement: 3 iterations, 5 s each  
+Timeout: 10 min per iteration  
+Threads: 1 thread, will synchronize iterations  
+Benchmark mode: Average time, time/op  
+Benchmark: backend.academy.Main.directAccess  
 
-Цель данного репозитория – познакомить вас с процессом разработки приложений на
-Java с использованием наиболее распространенных практик, инструментов и
-библиотек.
 
-## Структура проекта
+### Run progress: 0,00% complete, ETA 00:02:24
 
-Это типовой Java-проект, который собирается с помощью инструмента автоматической
-сборки проектов [Apache Maven](https://maven.apache.org/).
+Warmup Fork: 1 of 1  
+Warmup Iteration   1: 0,485 ns/op  
+Iteration   1: 0,413 ns/op  
+Iteration   2: 0,423 ns/op  
+Iteration   3: 0,498 ns/op
 
-Проект состоит из следующих директорий и файлов:
+### Run progress: 12,50% complete, ETA 00:02:30
 
-- [pom.xml](./pom.xml) – дескриптор сборки, используемый maven, или Project
-  Object Model. В нем описаны зависимости проекта и шаги по его сборке
-- [src/](./src) – директория, которая содержит исходный код приложения и его
-  тесты:
-  - [src/main/](./src/main) – здесь находится код вашего приложения
-  - [src/test/](./src/test) – здесь находятся тесты вашего приложения
-- [mvnw](./mvnw) и [mvnw.cmd](./mvnw.cmd) – скрипты maven wrapper для Unix и
-  Windows, которые позволяют запускать команды maven без локальной установки
-- [checkstyle.xml](checkstyle.xml),
-  [checkstyle-suppression.xml](checkstyle-suppression.xml), [pmd.xml](pmd.xml) и
-  [spotbugs-excludes.xml](spotbugs-excludes.xml) – в проекте используются
-  [линтеры](https://en.wikipedia.org/wiki/Lint_%28software%29) для контроля
-  качества кода. Указанные файлы содержат правила для используемых линтеров
-- [.mvn/](./.mvn) – служебная директория maven, содержащая конфигурационные
-  параметры сборщика
-- [lombok.config](lombok.config) – конфигурационный файл
-  [Lombok](https://projectlombok.org/), библиотеки помогающей избежать рутинного
-  написания шаблонного кода
-- [.editorconfig](.editorconfig) – файл с описанием настроек форматирования кода
-- [.github/workflows/build.yml](.github/workflows/build.yml) – файл с описанием
-  шагов сборки проекта в среде Github
-- [.gitattributes](.gitattributes), [.gitignore](.gitignore) – служебные файлы
-  для git, с описанием того, как обрабатывать различные файлы, и какие из них
-  игнорировать
+Fork: 1 of 1  
+Warmup Iteration   1: 0,483 ns/op  
+Iteration   1: 0,446 ns/op  
+Iteration   2: 0,615 ns/op  
+Iteration   3: 0,720 ns/op
 
-## Начало работы
+## Result "backend.academy.Main.directAccess":
+0,593 �(99.9%) 2,519 ns/op [Average]  
+(min, avg, max) = (0,446, 0,593, 0,720), stdev = 0,138  
+CI (99.9%): [? 0, 3,112] (assumes normal distribution)
 
-Подробнее о том, как приступить к разработке, описано в разделах
-[курса][course-url] `1.8 Настройка IDE`, `1.9 Работа с Git` и
-`1.10 Настройка SSH`.
 
-Для того чтобы собрать проект, и проверить, что все работает корректно, можно
-запустить из модального окна IDEA
-[Run Anything](https://www.jetbrains.com/help/idea/running-anything.html)
-команду:
+JMH version: 1.37  
+VM version: JDK 22.0.2, Java HotSpot(TM) 64-Bit Server VM, 22.0.2+9-70  
+VM invoker: C:\Program Files\Java\jdk-22\bin\java.exe  
+VM options: -javaagent:C:\Program Files\JetBrains\IntelliJ IDEA 2024.1.1\lib\idea_rt.jar=63038:C:\Program Files\JetBrains\IntelliJ IDEA 2024.1.1\bin -Dfile.encoding=UTF-8 -Dsun.stdout.encoding=UTF-8 -Dsun.stderr.encoding=UTF-8  
+Blackhole mode: compiler (auto-detected, use -Djmh.blackhole.autoDetect=false to disable)  
+Warmup: 1 iterations, 3 s each  
+Measurement: 3 iterations, 5 s each  
+Timeout: 10 min per iteration  
+Threads: 1 thread, will synchronize iterations  
+Benchmark mode: Average time, time/op  
+Benchmark: backend.academy.Main.lambdaMetafactory  
 
-```shell
-mvn clean verify
-```
+### Run progress: 25,00% complete, ETA 00:02:08
+Warmup Fork: 1 of 1  
+Warmup Iteration   1: 0,569 ns/op  
+Iteration   1: 0,619 ns/op  
+Iteration   2: 0,583 ns/op  
+Iteration   3: 0,593 ns/op
 
-Альтернативно можно в терминале из корня проекта выполнить следующие команды.
+### Run progress: 37,50% complete, ETA 00:01:46
+Fork: 1 of 1  
+Warmup Iteration   1: 0,538 ns/op  
+Iteration   1: 0,583 ns/op  
+Iteration   2: 0,600 ns/op  
+Iteration   3: 0,611 ns/op
 
-Для Unix (Linux, macOS, Cygwin, WSL):
 
-```shell
-./mvnw clean verify
-```
+## Result "backend.academy.Main.lambdaMetafactory":
+0,598 �(99.9%) 0,255 ns/op [Average]  
+(min, avg, max) = (0,583, 0,598, 0,611), stdev = 0,014  
+CI (99.9%): [0,343, 0,853] (assumes normal distribution)
 
-Для Windows:
 
-```shell
-mvnw.cmd clean verify
-```
+JMH version: 1.37  
+VM version: JDK 22.0.2, Java HotSpot(TM) 64-Bit Server VM, 22.0.2+9-70  
+VM invoker: C:\Program Files\Java\jdk-22\bin\java.exe  
+VM options: -javaagent:C:\Program Files\JetBrains\IntelliJ IDEA 2024.1.1\lib\idea_rt.jar=63038:C:\Program Files\JetBrains\IntelliJ IDEA 2024.1.1\bin -Dfile.encoding=UTF-8 -Dsun.stdout.encoding=UTF-8 -Dsun.stderr.encoding=UTF-8  
+Blackhole mode: compiler (auto-detected, use -Djmh.blackhole.autoDetect=false to disable)  
+Warmup: 1 iterations, 3 s each  
+Measurement: 3 iterations, 5 s each  
+Timeout: 10 min per iteration  
+Threads: 1 thread, will synchronize iterations  
+Benchmark mode: Average time, time/op  
+Benchmark: backend.academy.Main.methodHandles  
 
-Для окончания сборки потребуется подождать какое-то время, пока maven скачает
-все необходимые зависимости, скомпилирует проект и прогонит базовый набор
-тестов.
+### Run progress: 50,00% complete, ETA 00:01:25
+Warmup Fork: 1 of 1  
+Warmup Iteration   1: 2,325 ns/op  
+Iteration   1: 2,629 ns/op  
+Iteration   2: 2,384 ns/op  
+Iteration   3: 2,412 ns/op
 
-Если вы в процессе сборки получили ошибку:
+### Run progress: 62,50% complete, ETA 00:01:04
+Fork: 1 of 1  
+Warmup Iteration   1: 2,126 ns/op  
+Iteration   1: 2,436 ns/op  
+Iteration   2: 2,568 ns/op  
+Iteration   3: 2,627 ns/op  
 
-```shell
-Rule 0: org.apache.maven.enforcer.rules.version.RequireJavaVersion failed with message:
-JDK version must be at least 22
-```
 
-Значит, версия вашего JDK ниже 22.
+## Result "backend.academy.Main.methodHandles":
+2,544 �(99.9%) 1,792 ns/op [Average]  
+(min, avg, max) = (2,436, 2,544, 2,627), stdev = 0,098  
+CI (99.9%): [0,752, 4,335] (assumes normal distribution)
 
-Если же получили ошибку:
 
-```shell
-Rule 1: org.apache.maven.enforcer.rules.version.RequireMavenVersion failed with message:
-Maven version should, at least, be 3.8.8
-```
+JMH version: 1.37  
+VM version: JDK 22.0.2, Java HotSpot(TM) 64-Bit Server VM, 22.0.2+9-70  
+VM invoker: C:\Program Files\Java\jdk-22\bin\java.exe  
+VM options: -javaagent:C:\Program Files\JetBrains\IntelliJ IDEA 2024.1.1\lib\idea_rt.jar=63038:C:\Program Files\JetBrains\IntelliJ IDEA 2024.1.1\bin -Dfile.encoding=UTF-8 -Dsun.stdout.encoding=UTF-8 -Dsun.stderr.encoding=UTF-8  
+Blackhole mode: compiler (auto-detected, use -Djmh.blackhole.autoDetect=false to disable)  
+Warmup: 1 iterations, 3 s each  
+Measurement: 3 iterations, 5 s each  
+Timeout: 10 min per iteration  
+Threads: 1 thread, will synchronize iterations  
+Benchmark mode: Average time, time/op  
+Benchmark: backend.academy.Main.reflection  
 
-Значит, у вас используется версия maven ниже 3.8.8. Такого не должно произойти,
-если вы запускаете сборку из IDEA или через `mvnw`-скрипты.
+### Run progress: 75,00% complete, ETA 00:00:42
+Warmup Fork: 1 of 1  
+Warmup Iteration   1: 4,906 ns/op  
+Iteration   1: 5,039 ns/op  
+Iteration   2: 4,777 ns/op  
+Iteration   3: 5,305 ns/op
 
-Далее будут перечислены другие полезные команды maven.
+### Run progress: 87,50% complete, ETA 00:00:21
+Fork: 1 of 1  
+Warmup Iteration   1: 4,131 ns/op  
+Iteration   1: 4,617 ns/op  
+Iteration   2: 4,561 ns/op  
+Iteration   3: 4,791 ns/op
 
-Запуск только компиляции основных классов:
 
-```shell
-mvn compile
-```
+## Result "backend.academy.Main.reflection":
+4,657 �(99.9%) 2,188 ns/op [Average]  
+(min, avg, max) = (4,561, 4,657, 4,791), stdev = 0,120  
+CI (99.9%): [2,469, 6,844] (assumes normal distribution)
 
-Запуск тестов:
 
-```shell
-mvn test
-```
+### Run complete. Total time: 00:02:50
 
-Запуск линтеров:
+REMEMBER: The numbers below are just data. To gain reusable insights, you need to follow up on
+why the numbers are the way they are. Use profilers (see -prof, -lprof), design factorial
+experiments, perform baseline and negative tests that provide experimental control, make sure
+the benchmarking environment is safe on JVM/OS/HW level, ask for reviews from the domain experts.
+Do not assume the numbers tell you what you want them to tell.
 
-```shell
-mvn checkstyle:check modernizer:modernizer spotbugs:check pmd:check pmd:cpd-check
-```
+NOTE: Current JVM experimentally supports Compiler Blackholes, and they are in use. Please exercise
+extra caution when trusting the results, look into the generated code to check the benchmark still
+works, and factor in a small probability of new VM bugs. Additionally, while comparisons between
+different JVMs are already problematic, the performance difference caused by different Blackhole
+modes can be very significant. Please make sure you use the consistent Blackhole mode for comparisons.
 
-Вывод дерева зависимостей проекта (полезно при отладке транзитивных
-зависимостей):
-
-```shell
-mvn dependency:tree
-```
-
-Вывод вспомогательной информации о любом плагине (вместо `compiler` можно
-подставить интересующий вас плагин):
-
-```shell
-mvn help:describe -Dplugin=compiler
-```
-
-## Дополнительные материалы
-
-- Документация по maven: https://maven.apache.org/guides/index.html
-- Поиск зависимостей и их версий: https://central.sonatype.com/search
-- Документация по процессу автоматизированной сборки в среде github:
-  https://docs.github.com/en/actions
-- Документация по git: https://git-scm.com/doc
-- Javadoc для Java 22:
-  https://docs.oracle.com/en/java/javase/22/docs/api/index.html
-
-[course-url]: https://edu.tinkoff.ru/all-activities/courses/870efa9d-7067-4713-97ae-7db256b73eab
+Benchmark               Mode  Cnt  Score   Error  Units  
+Main.directAccess       avgt    3  0,593 � 2,519  ns/op  
+Main.lambdaMetafactory  avgt    3  0,598 � 0,255  ns/op  
+Main.methodHandles      avgt    3  2,544 � 1,792  ns/op  
+Main.reflection         avgt    3  4,657 � 2,188  ns/op  
